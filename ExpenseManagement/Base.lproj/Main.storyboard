@@ -93,6 +93,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="btnRegister:" destination="Js3-Hx-ggK" eventType="touchUpInside" id="PE3-f6-u3x"/>
+                                                                    <segue destination="9IS-wT-ibs" kind="show" id="M8p-lO-Kg0"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
