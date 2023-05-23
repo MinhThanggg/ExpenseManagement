@@ -13,6 +13,7 @@
 		666449F42A0A28A400D30572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666449F22A0A28A400D30572 /* Main.storyboard */; };
 		666449F62A0A28A500D30572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666449F52A0A28A500D30572 /* Assets.xcassets */; };
 		666449F92A0A28A500D30572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666449F72A0A28A500D30572 /* LaunchScreen.storyboard */; };
+		669DF26E2A1D155400AD49A3 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669DF26D2A1D155400AD49A3 /* RegisterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		666449F52A0A28A500D30572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		666449F82A0A28A500D30572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		666449FA2A0A28A500D30572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		669DF26D2A1D155400AD49A3 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				666449F02A0A28A400D30572 /* HomeController.swift */,
 				660F86732A1CF87600CB2280 /* LoginController.swift */,
+				669DF26D2A1D155400AD49A3 /* RegisterController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669DF26E2A1D155400AD49A3 /* RegisterController.swift in Sources */,
 				666449F12A0A28A400D30572 /* HomeController.swift in Sources */,
 				660F86742A1CF87600CB2280 /* LoginController.swift in Sources */,
 				666449EF2A0A28A400D30572 /* AppDelegate.swift in Sources */,

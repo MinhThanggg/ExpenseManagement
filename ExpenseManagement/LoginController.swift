@@ -19,6 +19,11 @@ class LoginController: UIViewController {
     @IBAction func btnLogin(_ sender: UIButton) {
     }
     
+    @IBAction func btnRegister(_ sender: UIButton) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
