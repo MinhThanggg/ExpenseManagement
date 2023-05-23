@@ -9,11 +9,29 @@
 import UIKit
 
 class LoginController: UIViewController {
-
+    
+    @IBOutlet weak var background: UIView!
+    
+    @IBOutlet weak var txtEmail: UITextField!
+    
+    @IBOutlet weak var txtPassword: UITextField!
+    
+    @IBAction func btnLogin(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // setting Radius
+        txtEmail.clipsToBounds = true
+        txtEmail.layer.cornerRadius = 10
+        background.clipsToBounds = true
+        background.layer.cornerRadius = 10
+        txtPassword.clipsToBounds = true
+        txtPassword.layer.cornerRadius = 10
+        
     }
     
 
