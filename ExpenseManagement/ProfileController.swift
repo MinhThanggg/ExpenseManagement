@@ -8,15 +8,33 @@
 
 import UIKit
 
-class ProfileController: UIViewController {
-
+class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imageAvatar: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func imageProcessing(_ sender: UITapGestureRecognizer) {
+        print("chuyen man hinh")
+        let image = UIImagePickerController()
+        image.sourceType = .photoLibrary
+        image.delegate = self
+        present(image, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let imageSelected = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            imageAvatar.image = imageSelected
+        }
+        // Quay ve man hinh truoc do
+        dismiss(animated: true, completion: nil)
+    }
+    
+  
+    
     /*
     // MARK: - Navigation
 

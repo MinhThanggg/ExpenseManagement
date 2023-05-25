@@ -257,17 +257,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="E4h-ED-viG">
                                 <rect key="frame" x="40" y="158" width="334" height="679"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-3h-GEr">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-3h-GEr">
                                         <rect key="frame" x="77" y="0.0" width="180" height="180"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="trO-ul-KXi"/>
                                             <constraint firstAttribute="width" constant="180" id="v33-CV-TJW"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="50"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="NH0-4g-ucD" appends="YES" id="X4f-SQ-DTw"/>
+                                        </connections>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuH-ge-B0O">
                                         <rect key="frame" x="0.0" y="240" width="334" height="439"/>
@@ -373,8 +372,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UH7-5T-Uht"/>
                     </view>
+                    <connections>
+                        <outlet property="imageAvatar" destination="s8T-3h-GEr" id="I02-mJ-Kdd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBO-cT-HVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NH0-4g-ucD">
+                    <connections>
+                        <action selector="imageProcessing:" destination="6Cw-8h-fs6" id="oaZ-Nl-phV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3099" y="17"/>
         </scene>
