@@ -15,6 +15,9 @@
 		666449F92A0A28A500D30572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666449F72A0A28A500D30572 /* LaunchScreen.storyboard */; };
 		668BCEC92A1E58D00002C3E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668BCEC82A1E58D00002C3E1 /* ProfileController.swift */; };
 		669DF26E2A1D155400AD49A3 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669DF26D2A1D155400AD49A3 /* RegisterController.swift */; };
+		66A133D62A21F63E00D2889A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A133D52A21F63E00D2889A /* SWRevealViewController.m */; };
+		66A133DB2A2201CF00D2889A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A133DA2A2201CF00D2889A /* User.swift */; };
+		66A133DD2A22358D00D2889A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A133DC2A22358D00D2889A /* MenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,11 @@
 		666449FA2A0A28A500D30572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		668BCEC82A1E58D00002C3E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		669DF26D2A1D155400AD49A3 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		66A133D32A21F63C00D2889A /* ExpenseManagement-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExpenseManagement-Bridging-Header.h"; sourceTree = "<group>"; };
+		66A133D42A21F63D00D2889A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		66A133D52A21F63E00D2889A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		66A133DA2A2201CF00D2889A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		66A133DC2A22358D00D2889A /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,8 @@
 		666449ED2A0A28A400D30572 /* ExpenseManagement */ = {
 			isa = PBXGroup;
 			children = (
+				66A133D92A2201B300D2889A /* DataModels */,
+				66A133D22A21F60400D2889A /* sideMenu */,
 				666449F22A0A28A400D30572 /* Main.storyboard */,
 				66644A012A0A2E2800D30572 /* controllers */,
 				66644A002A0A2DF900D30572 /* systemFiles */,
@@ -85,8 +95,27 @@
 				660F86732A1CF87600CB2280 /* LoginController.swift */,
 				669DF26D2A1D155400AD49A3 /* RegisterController.swift */,
 				668BCEC82A1E58D00002C3E1 /* ProfileController.swift */,
+				66A133DC2A22358D00D2889A /* MenuController.swift */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		66A133D22A21F60400D2889A /* sideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				66A133D42A21F63D00D2889A /* SWRevealViewController.h */,
+				66A133D52A21F63E00D2889A /* SWRevealViewController.m */,
+				66A133D32A21F63C00D2889A /* ExpenseManagement-Bridging-Header.h */,
+			);
+			path = sideMenu;
+			sourceTree = "<group>";
+		};
+		66A133D92A2201B300D2889A /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				66A133DA2A2201CF00D2889A /* User.swift */,
+			);
+			name = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +150,7 @@
 				TargetAttributes = {
 					666449EA2A0A28A400D30572 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -160,11 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A133DD2A22358D00D2889A /* MenuController.swift in Sources */,
 				668BCEC92A1E58D00002C3E1 /* ProfileController.swift in Sources */,
 				669DF26E2A1D155400AD49A3 /* RegisterController.swift in Sources */,
 				666449F12A0A28A400D30572 /* HomeController.swift in Sources */,
+				66A133DB2A2201CF00D2889A /* User.swift in Sources */,
 				660F86742A1CF87600CB2280 /* LoginController.swift in Sources */,
 				666449EF2A0A28A400D30572 /* AppDelegate.swift in Sources */,
+				66A133D62A21F63E00D2889A /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ExpenseManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,6 +352,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tdc.edu.vn.ExpenseManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExpenseManagement/sideMenu/ExpenseManagement-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -327,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ExpenseManagement/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -335,6 +372,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tdc.edu.vn.ExpenseManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExpenseManagement/sideMenu/ExpenseManagement-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
