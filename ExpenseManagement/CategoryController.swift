@@ -49,6 +49,46 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
         }
         fatalError("Khong the tao cell!")
     }
+    @IBAction func unWindToCategoryController(sender: UIStoryboardSegue) {
+//        print("Quay ve tu CategoryDetailController")
+        if let source = sender.source as? CategoryDetailController {
+            if let category = source.category {
+                switch source.navigationType {
+                case .newCategory:
+                    let newIndexPath = IndexPath(row: categoryList.count, section: 0)
+                    categoryList += [category]
+                    myTable.insertRows(at: [newIndexPath], with: .none)
+                case .editCategory:
+                    if let selectedIndexPath = myTable.indexPathForSelectedRow {
+                        categoryList[selectedIndexPath.row] = category
+                        myTable.reloadRows(at: [selectedIndexPath], with: .none)
+                    }
+                    break
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        print("alo")
+        if let destination = segue.destination as? CategoryDetailController{
+            // Xac dinh tao mon an moi hay edit mon an
+            if let segueName = segue.identifier {
+                if segueName == "newCategory"{
+                    //print("Tao mon an moi")
+                    destination.navigationType = .newCategory
+                }
+                else {
+                    //print("Edit mon an cu")
+                    destination.navigationType = .editCategory
+                    // lay index path cua cell duoc chon
+                    if let selectedIndexPath = myTable.indexPathForSelectedRow {
+                        destination.category =  categoryList[selectedIndexPath.row]
+                    }
+                }
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

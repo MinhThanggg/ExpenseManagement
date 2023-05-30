@@ -434,7 +434,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P6p-Vu-HXK">
-                                <rect key="frame" x="0.0" y="88" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -453,10 +453,10 @@
                                                         <outletCollection property="gestureRecognizers" destination="y9c-Co-zU8" appends="YES" id="8jJ-ni-CC7"/>
                                                     </connections>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqb-te-CyN">
-                                                    <rect key="frame" x="140" y="11" width="190" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqb-te-CyN">
+                                                    <rect key="frame" x="108" y="22" width="267" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -465,6 +465,7 @@
                                         <connections>
                                             <outlet property="imgCategory" destination="aZ6-wl-jS8" id="XyD-co-g6h"/>
                                             <outlet property="txtCategoryName" destination="Rqb-te-CyN" id="4bv-Jw-1Py"/>
+                                            <segue destination="YLc-Zs-PqR" kind="show" identifier="editCategory" id="91R-6Z-1uS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -477,7 +478,7 @@
                         <barButtonItem key="leftBarButtonItem" title="⬛️" id="wG0-V4-Mft"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tbk-pH-jXb">
                             <connections>
-                                <segue destination="ycJ-GV-cPS" kind="presentation" identifier="addCategorySegue" id="5xF-54-IJY"/>
+                                <segue destination="ycJ-GV-cPS" kind="presentation" identifier="addCategory" id="5xF-54-IJY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -516,6 +517,12 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Afq-ZF-y7I" secondAttribute="bottom" id="0lW-Jv-a5J"/>
+                                    <constraint firstItem="Afq-ZF-y7I" firstAttribute="top" secondItem="MVv-7F-CuA" secondAttribute="bottom" constant="8" id="Hsj-2J-MYV"/>
+                                    <constraint firstItem="Afq-ZF-y7I" firstAttribute="leading" secondItem="18b-aZ-q3k" secondAttribute="leading" id="JFm-hZ-v5Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="Afq-ZF-y7I" secondAttribute="trailing" id="kST-QJ-7M6"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -532,7 +539,11 @@
                                 <action selector="btnCancel:" destination="YLc-Zs-PqR" id="pc3-v5-5JC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="A1B-tW-SE0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="A1B-tW-SE0">
+                            <connections>
+                                <segue destination="Kjy-M9-WdM" kind="unwind" unwindAction="unWindToCategoryControllerWithSender:" id="cdP-L2-y80"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnSave" destination="A1B-tW-SE0" id="qml-1J-NqT"/>
@@ -541,6 +552,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANq-v4-hmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Kjy-M9-WdM" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="IfM-0Z-V9S">
                     <connections>
                         <action selector="imageProccessing:" destination="YLc-Zs-PqR" id="wqm-UQ-21H"/>
@@ -700,6 +712,7 @@
         <image name="meal" width="112.5" height="112.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="91R-6Z-1uS"/>
         <segue reference="smL-zb-yXB"/>
     </inferredMetricsTieBreakers>
 </document>
