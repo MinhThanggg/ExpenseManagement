@@ -499,15 +499,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voz-qi-SWX">
-                                <rect key="frame" x="186" y="288" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="18b-aZ-q3k">
+                                <rect key="frame" x="70" y="178" width="274" height="150.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên danh mục" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVv-7F-CuA">
+                                        <rect key="frame" x="0.0" y="0.0" width="274" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal" translatesAutoresizingMaskIntoConstraints="NO" id="Afq-ZF-y7I">
+                                        <rect key="frame" x="0.0" y="38" width="274" height="112.5"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="IfM-0Z-V9S" appends="YES" id="hWO-Sh-507"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="18b-aZ-q3k" firstAttribute="leading" secondItem="m5x-8I-0Or" secondAttribute="leading" constant="70" id="SP1-Xp-Gvh"/>
+                            <constraint firstItem="m5x-8I-0Or" firstAttribute="trailing" secondItem="18b-aZ-q3k" secondAttribute="trailing" constant="70" id="i7J-KQ-3lP"/>
+                            <constraint firstItem="18b-aZ-q3k" firstAttribute="top" secondItem="m5x-8I-0Or" secondAttribute="top" constant="90" id="kT6-n4-GCt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m5x-8I-0Or"/>
                     </view>
                     <navigationItem key="navigationItem" title="THÊM DANH MỤC" id="auO-jT-JK6">
@@ -518,10 +534,20 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="A1B-tW-SE0"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnSave" destination="A1B-tW-SE0" id="qml-1J-NqT"/>
+                        <outlet property="imgCategory" destination="Afq-ZF-y7I" id="UuF-cn-XxM"/>
+                        <outlet property="txtName" destination="MVv-7F-CuA" id="DC0-hC-TNZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANq-v4-hmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IfM-0Z-V9S">
+                    <connections>
+                        <action selector="imageProccessing:" destination="YLc-Zs-PqR" id="wqm-UQ-21H"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7217" y="68"/>
+            <point key="canvasLocation" x="7215.9420289855079" y="67.633928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7OF-OG-xXi">
