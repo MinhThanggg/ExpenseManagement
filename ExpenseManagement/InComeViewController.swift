@@ -13,14 +13,15 @@ class InComeViewController: UITableViewController {
     private var inComeList = [InCome]()
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     let arrName = ["Đồ ăn", "Thuốc lá", "Phương Tiện"]
-    let arrImage = ["meal", "cigarette", "car"]
+    let arrImageCategory = ["meal", "cigarette", "car"]
     let arrNote = ["dở quá", "mua ở tạp hoá", "đi đến trường"]
+    let arrImage = ["defaul", "thuoc", "xe"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         for i in 0..<3 {
-            if let inCome = InCome(money: 20000, category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImage[i])")), note: "\(arrNote[i])", image: UIImage(named: "Image")) {
+            if let inCome = InCome(money: 20000, category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImageCategory[i])")), note: "\(arrNote[i])", image: UIImage(named: "\(arrImage[i])")) {
                 inComeList += [inCome]
             }
         }
@@ -59,46 +60,46 @@ class InComeViewController: UITableViewController {
         }
         fatalError("Khong the tao cell!")
     }
-//    @IBAction func unWindToInComeController(sender: UIStoryboardSegue) {
-//        //        print("Quay ve tu CategoryDetailController")
-//        if let source = sender.source as? InComeDetailController {
-//            if let inCome = source.inCome {
-//                switch source.navigationType {
-//                case .newInCome:
-//                    let newIndexPath = IndexPath(row: inComeList.count, section: 0)
-//                    inComeList += [inCome]
-//                    tableView.insertRows(at: [newIndexPath], with: .none)
-//                case .editInCome:
-//                    if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                        inComeList[selectedIndexPath.row] = inCome
-//                        tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//                    }
-//                    break
-//                }
-//            }
-//        }
-//    }
+    @IBAction func unWindToInComeController(sender: UIStoryboardSegue) {
+        //        print("Quay ve tu CategoryDetailController")
+        if let source = sender.source as? InComeDetailController {
+            if let inCome = source.inCome {
+                switch source.navigationType {
+                case .newInCome:
+                    let newIndexPath = IndexPath(row: inComeList.count, section: 0)
+                    inComeList += [inCome]
+                    tableView.insertRows(at: [newIndexPath], with: .none)
+                case .editInCome:
+                    if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                        inComeList[selectedIndexPath.row] = inCome
+                        tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                    }
+                    break
+                }
+            }
+        }
+    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        //        print("alo")
-//        if let destination = segue.destination as? InComeDetailController{
-//            // Xac dinh tao mon an moi hay edit mon an
-//            if let segueName = segue.identifier {
-//                if segueName == "newInCome"{
-//                    //print("Tao mon an moi")
-//                    destination.navigationType = .newInCome
-//                }
-//                else {
-//                    //print("Edit mon an cu")
-//                    destination.navigationType = .editInCome
-//                    // lay index path cua cell duoc chon
-//                    if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                        destination.inCome =  inComeList[selectedIndexPath.row]
-//                    }
-//                }
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        print("alo")
+        if let destination = segue.destination as? InComeDetailController{
+            // Xac dinh tao mon an moi hay edit mon an
+            if let segueName = segue.identifier {
+                if segueName == "newInCome"{
+                    //print("Tao mon an moi")
+                    destination.navigationType = .newInCome
+                }
+                else {
+                    //print("Edit mon an cu")
+                    destination.navigationType = .editInCome
+                    // lay index path cua cell duoc chon
+                    if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                        destination.inCome =  inComeList[selectedIndexPath.row]
+                    }
+                }
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

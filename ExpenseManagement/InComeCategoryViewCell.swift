@@ -10,8 +10,12 @@ import UIKit
 
 class InComeCategoryViewCell: UITableViewCell {
 
+//    @IBOutlet weak var categoryImg: UIImageView!
+//    @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var categoryImg: UIImageView!
     @IBOutlet weak var lbName: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

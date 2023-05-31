@@ -84,18 +84,18 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
 //        return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) as? SpendingCategoryViewCell {
-//            btnNameCategory.setTitle(cell.lbName.text, for: .normal)
-////            cname = cell.lbName.text!
-//            if let ten = cell.lbName.text {
-//                cname = ten
-//            }
-//            imgCategory.image = cell.categoryImg.image
-//            self.myTable.isHidden = true
-//        }
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? SpendingCategoryViewCell {
+            btnNameCategory.setTitle(cell.lbName.text, for: .normal)
+//            cname = cell.lbName.text!
+            if let ten = cell.lbName.text {
+                cname = ten
+            }
+            imgCategory.image = cell.categoryImg.image
+            self.myTable.isHidden = true
+        }
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

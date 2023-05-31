@@ -16,6 +16,7 @@
 		666449F92A0A28A500D30572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666449F72A0A28A500D30572 /* LaunchScreen.storyboard */; };
 		66752ABC2A27218200A514AB /* SpendingCategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66752ABB2A27218200A514AB /* SpendingCategoryViewCell.swift */; };
 		66752AC22A276BFE00A514AB /* InComeCategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66752AC12A276BFE00A514AB /* InComeCategoryViewCell.swift */; };
+		66752AE42A2799EF00A514AB /* InComeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66752AE32A2799EF00A514AB /* InComeDetailController.swift */; };
 		668BCEC92A1E58D00002C3E1 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668BCEC82A1E58D00002C3E1 /* ProfileController.swift */; };
 		669DF26E2A1D155400AD49A3 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669DF26D2A1D155400AD49A3 /* RegisterController.swift */; };
 		669E6D312A246110009971D9 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669E6D302A246110009971D9 /* CategoryController.swift */; };
@@ -46,6 +47,7 @@
 		666449FA2A0A28A500D30572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66752ABB2A27218200A514AB /* SpendingCategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoryViewCell.swift; sourceTree = "<group>"; };
 		66752AC12A276BFE00A514AB /* InComeCategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeCategoryViewCell.swift; sourceTree = "<group>"; };
+		66752AE32A2799EF00A514AB /* InComeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeDetailController.swift; sourceTree = "<group>"; };
 		668BCEC82A1E58D00002C3E1 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		669DF26D2A1D155400AD49A3 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		669E6D302A246110009971D9 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				661070D32A264E05009BC765 /* SpendingViewController.swift */,
 				66CD26F22A265AB500A35944 /* InComeViewController.swift */,
 				66AD0C6F2A2665C600E57EB5 /* SpendingDetailController.swift */,
+				66752AE32A2799EF00A514AB /* InComeDetailController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				669DF26E2A1D155400AD49A3 /* RegisterController.swift in Sources */,
 				666449F12A0A28A400D30572 /* HomeController.swift in Sources */,
 				66752ABC2A27218200A514AB /* SpendingCategoryViewCell.swift in Sources */,
+				66752AE42A2799EF00A514AB /* InComeDetailController.swift in Sources */,
 				66A133DB2A2201CF00D2889A /* User.swift in Sources */,
 				669E6D342A246B9A009971D9 /* CategoryTableViewCell.swift in Sources */,
 				660F86742A1CF87600CB2280 /* LoginController.swift in Sources */,
