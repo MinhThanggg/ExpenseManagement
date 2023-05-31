@@ -39,12 +39,10 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
         if let cell = tableView.dequeueReusableCell(withIdentifier: name, for: indexPath) as? CategoryTableViewCell {
             // Do du lieu vao cell
             let category = categoryList[indexPath.row]
-//            cell.lblMealName.text = meal.getName()
-//            cell.ratingControl.ratingValue = meal.getRatingValue()
-//            cell.imgMeal.image = meal.getimgMeal()
+
             cell.txtCategoryName.text = category.getName()
             cell.imgCategory.image = category.getImage()
-            
+
             return cell
         }
         fatalError("Khong the tao cell!")

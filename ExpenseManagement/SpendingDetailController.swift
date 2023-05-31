@@ -8,21 +8,71 @@
 
 import UIKit
 
-class SpendingDetailController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
-
+class SpendingDetailController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var btnSave: UIBarButtonItem!
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var txtNote: UITextField!
     @IBOutlet weak var txtMoney: UITextField!
-    @IBAction func btnCancel(_ sender: UIBarButtonItem) {
-         dismiss(animated: true, completion: nil)
+   
+    
+    
+    var dropdownItems = [Category]()
+//    let dropdownItems = ["Tùy chọn 1", "Tùy chọn 2", "Tùy chọn 3"]
+    
+
+    @IBOutlet weak var tableViewCategory: UITableView!
+    @IBOutlet weak var btnNameCategory: UIButton!
+    @IBAction func btnSelcetCategory(_ sender: UIButton) {
+         self.tableViewCategory.isHidden = !self.tableViewCategory.isHidden
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//                    if let category = Category(name: "Do an", image: UIImage(named: "meal")) {
+//                        dropdownItems += [category]
+//                    }
 
         // Do any additional setup after loading the view.
+        for _ in 0..<3 {
+            if let category = Category(name: "Do an", image: UIImage(named: "meal")) {
+                dropdownItems += [category]
+            }
+        }
+        self.tableViewCategory.isHidden = true
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dropdownItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let name = "SpendingCategoryViewCell"
+       
+        if let cell = tableView.dequeueReusableCell(withIdentifier: name, for: indexPath) as? SpendingCategoryViewCell {
+            // Do du lieu vao cell
+            let category = dropdownItems[indexPath.row]
+           cell.lbName.text = category.getName()
+            cell.categoryImg.image = category.getImage()
+
+            return cell
+        }
+        fatalError("Khong the tao cell!")
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? SpendingCategoryViewCell {
+            btnNameCategory.setTitle(cell.lbName.text, for: .normal)
+            self.tableViewCategory.isHidden = true
+        }
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         //        print("Chuyen man hinh")
