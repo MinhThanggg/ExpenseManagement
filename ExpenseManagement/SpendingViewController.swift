@@ -11,16 +11,21 @@ import UIKit
 class SpendingViewController: UITableViewController {
     
     private var spendingList = [Spending]()
+    let arrName = ["Đồ ăn", "Thuốc lá", "Phương Tiện"]
+    let arrImageCategory = ["meal", "cigarette", "car"]
+    let arrNote = ["dở quá", "mua ở tạp hoá", "đi đến trường"]
+    let arrImage = ["defaul", "thuoc", "xe"]
+    
 
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let spending = Spending(money: 20000, category: Category(name: "món ăn", image: UIImage(named: "meal")), note: "dở quá", image: UIImage(named: "Image")) {
-            spendingList += [spending]
+        for i in 0..<3 {
+            if let spending = Spending(money: 20000, category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImageCategory[i])")), note: "\(arrNote[i])", image: UIImage(named: "\(arrImage[i])")) {
+                spendingList += [spending]
+            }
         }
-        
-        
+
         //
         btnMenu.target = self.revealViewController()
         btnMenu.action = Selector("revealToggle:")
@@ -54,6 +59,48 @@ class SpendingViewController: UITableViewController {
         }
         fatalError("Khong the tao cell!")
     }
+    
+    @IBAction func unWindToCategoryController(sender: UIStoryboardSegue) {
+        //        print("Quay ve tu CategoryDetailController")
+        if let source = sender.source as? SpendingDetailController {
+            if let spending = source.spending {
+                switch source.navigationType {
+                case .newSpending:
+                    let newIndexPath = IndexPath(row: spendingList.count, section: 0)
+                    spendingList += [spending]
+                    tableView.insertRows(at: [newIndexPath], with: .none)
+                case .editSpending:
+                    if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                        spendingList[selectedIndexPath.row] = spending
+                        tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                    }
+                    break
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        print("alo")
+        if let destination = segue.destination as? SpendingDetailController{
+            // Xac dinh tao mon an moi hay edit mon an
+            if let segueName = segue.identifier {
+                if segueName == "newSpending"{
+                    //print("Tao mon an moi")
+                    destination.navigationType = .newSpending
+                }
+                else {
+                    //print("Edit mon an cu")
+                    destination.navigationType = .editSpending
+                    // lay index path cua cell duoc chon
+                    if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                        destination.spending =  spendingList[selectedIndexPath.row]
+                    }
+                }
+            }
+        }
+    }
+    
     
 
     /*

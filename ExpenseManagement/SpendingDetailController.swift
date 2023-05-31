@@ -12,15 +12,23 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var btnSave: UIBarButtonItem!
     
+    @IBAction func btnCancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var txtNote: UITextField!
     @IBOutlet weak var txtMoney: UITextField!
-   
-    
-    
+    @IBOutlet weak var imgCategory: UIImageView!
+    var spending:Spending?
+    var cname:String?
     var dropdownItems = [Category]()
-//    let dropdownItems = ["Tùy chọn 1", "Tùy chọn 2", "Tùy chọn 3"]
-    
+    let arrName = ["Đồ ăn", "Thuốc lá", "Phương Tiện"]
+    let arrImage = ["meal", "cigarette", "car"]
+    enum NavigationType {
+        case newSpending
+        case editSpending
+    }
+    var navigationType:NavigationType = .newSpending
 
     @IBOutlet weak var tableViewCategory: UITableView!
     @IBOutlet weak var btnNameCategory: UIButton!
@@ -31,13 +39,17 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//                    if let category = Category(name: "Do an", image: UIImage(named: "meal")) {
-//                        dropdownItems += [category]
-//                    }
+        
+        if let spending = spending {
+            txtNote.text = spending.getNote()
+            txtMoney.text = String(spending.getMoney())
+            image.image = spending.getImage()
+            imgCategory.image = spending.getCategory()?.getImage()
+        }
 
         // Do any additional setup after loading the view.
-        for _ in 0..<3 {
-            if let category = Category(name: "Do an", image: UIImage(named: "meal")) {
+        for i in 0..<3 {
+            if let category = Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImage[i])")) {
                 dropdownItems += [category]
             }
         }
@@ -68,6 +80,11 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) as? SpendingCategoryViewCell {
             btnNameCategory.setTitle(cell.lbName.text, for: .normal)
+//            cname = cell.lbName.text!
+            if let ten = cell.lbName.text {
+                cname = ten
+            }
+            imgCategory.image = cell.categoryImg.image
             self.tableViewCategory.isHidden = true
         }
         
@@ -77,9 +94,11 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
         super.prepare(for: segue, sender: sender)
         //        print("Chuyen man hinh")
         if let button = sender as? UIBarButtonItem, button === btnSave {
-//            let name = txtName.text ?? ""
-//            let img = imgCategory.image
-//            category = Category(name: name, image: img)
+            let money = txtMoney.text ?? ""
+            let note = txtNote.text ?? ""
+            let img = image.image
+            let imageCategory = imgCategory.image
+            spending = Spending(money: Double(money) ?? 0, category: Category(name: cname ?? spending?.getCategory()?.getName() ?? "", image: imageCategory), note: note, image: img)
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

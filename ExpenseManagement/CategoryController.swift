@@ -14,6 +14,8 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var myTable: UITableView!
     
     private var categoryList = [Category]()
+    let arrName = ["Đồ ăn", "Thuốc lá", "Phương Tiện"]
+    let arrImage = ["meal", "cigarette", "car"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,12 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
         btnMenu.action = Selector("revealToggle:")
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         // Do any additional setup after loading the view.
-        if let category = Category(name: "Do an", image: UIImage(named: "meal")) {
-            categoryList += [category]
+        for i in 0..<3 {
+            if let category = Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImage[i])")) {
+                categoryList += [category]
+            }
         }
+       
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
