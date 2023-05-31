@@ -23,6 +23,8 @@ class LoginController: UIViewController {
         
     }
     
+    @IBOutlet weak var textFieldWithPlaceholder:UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,7 @@ class LoginController: UIViewController {
         
     }
     
+    
 
     /*
     // MARK: - Navigation
@@ -50,4 +53,14 @@ class LoginController: UIViewController {
     }
     */
 
+}
+extension UITextField{
+    @IBInspectable var placeHolderColor: UIColor?{
+        get{
+            return self.placeHolderColor
+        }
+        set{
+            self.attributedPlaceholder=NSAttributedString(string: self.placeholder != nil ? self.placeholder! :"",attributes: [NSAttributedString.Key.foregroundColor: newValue!])
+        }
+    }
 }

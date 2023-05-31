@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterController: UIViewController {
 
+    @IBAction func btnCancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

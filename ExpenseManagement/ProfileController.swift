@@ -32,7 +32,7 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
             email.text = accout.getEmail()
             password.text = accout.getPassword()
         }
-//         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     @IBAction func imageProcessing(_ sender: UITapGestureRecognizer) {

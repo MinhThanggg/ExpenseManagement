@@ -15,7 +15,7 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var money: UILabel!
     
-    var arrStr:[String] = ["Trang chủ", "Danh mục","Đăng xuất"]
+    var arrStr:[String] = ["Chi tiêu", "Thu nhập" ,"Danh mục","Đăng xuất"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,12 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: arrStr[indexPath.row], for: indexPath)
         cell.textLabel?.text = arrStr[indexPath.row]
+        cell.textLabel?.textColor = .white
         return cell
     }
     
