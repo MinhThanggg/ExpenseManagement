@@ -39,7 +39,14 @@ class CategoryDetailController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func btnCancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        switch navigationType {
+        case .newCategory:
+            dismiss(animated: true, completion: nil)
+        case .editCategory:
+            if let navigationController = navigationController {
+                navigationController.popViewController(animated: true)
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

@@ -13,7 +13,14 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var btnSave: UIBarButtonItem!
     
     @IBAction func btnCancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        switch navigationType {
+        case .newSpending:
+            dismiss(animated: true, completion: nil)
+        case .editSpending:
+            if let navigationController = navigationController {
+                navigationController.popViewController(animated: true)
+            }
+        }
     }
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var txtNote: UITextField!
