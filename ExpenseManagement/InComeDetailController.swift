@@ -43,7 +43,14 @@ class InComeDetailController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var btnSave: UIBarButtonItem!
     
     @IBAction func btnCancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        switch navigationType {
+        case .newInCome:
+            dismiss(animated: true, completion: nil)
+        case .editInCome:
+            if let navigationController = navigationController {
+                navigationController.popViewController(animated: true)
+            }
+        }
     }
     
     @IBAction func btnSelect(_ sender: UIButton) {
