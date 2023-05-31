@@ -13,6 +13,10 @@ class SpendingCategoryViewCell: UITableViewCell {
 //    @IBOutlet weak var lbName: UILabel!
 //    @IBOutlet weak var categoryImg: UIImageView!
     
+    @IBOutlet weak var lbName: UILabel!
+ 
+    @IBOutlet weak var categoryImg: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

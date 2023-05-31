@@ -68,20 +68,20 @@ class SpendingDetailController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let name = "SpendingCategoryViewCell"
-//
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: name, for: indexPath) as? SpendingCategoryViewCell {
-//            // Do du lieu vao cell
-//            let category = dropdownItems[indexPath.row]
-//           cell.lbName.text = category.getName()
-//            cell.categoryImg.image = category.getImage()
-//
-//            return cell
-//        }
-//        fatalError("Khong the tao cell!")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celll", for: indexPath)
-        cell.textLabel?.text = listt[indexPath.row]
-        return cell
+        let name = "SpendingCategoryViewCell"
+
+        if let cell = tableView.dequeueReusableCell(withIdentifier: name, for: indexPath) as? SpendingCategoryViewCell {
+            // Do du lieu vao cell
+            let category = dropdownItems[indexPath.row]
+           cell.lbName.text = category.getName()
+            cell.categoryImg.image = category.getImage()
+
+            return cell
+        }
+        fatalError("Khong the tao cell!")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "celll", for: indexPath)
+//        cell.textLabel?.text = listt[indexPath.row]
+//        return cell
     }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
