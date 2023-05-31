@@ -40,6 +40,7 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: arrStr[indexPath.row], for: indexPath)
         cell.textLabel?.text = arrStr[indexPath.row]
+        cell.textLabel?.textColor = .white
         return cell
     }
     

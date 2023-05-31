@@ -15,13 +15,14 @@ class SpendingViewController: UITableViewController {
     let arrImageCategory = ["meal", "cigarette", "car"]
     let arrNote = ["dở quá", "mua ở tạp hoá", "đi đến trường"]
     let arrImage = ["defaul", "thuoc", "xe"]
+    let arrMoney = [640, 866, 778]
     
 
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in 0..<3 {
-            if let spending = Spending(money: 20000, category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImageCategory[i])")), note: "\(arrNote[i])", image: UIImage(named: "\(arrImage[i])")) {
+            if let spending = Spending(money: Double(arrMoney[i]), category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImageCategory[i])")), note: "\(arrNote[i])", image: UIImage(named: "\(arrImage[i])")) {
                 spendingList += [spending]
             }
         }

@@ -16,12 +16,13 @@ class InComeViewController: UITableViewController {
     let arrImageCategory = ["meal", "cigarette", "car"]
     let arrNote = ["dở quá", "mua ở tạp hoá", "đi đến trường"]
     let arrImage = ["defaul", "thuoc", "xe"]
+    let arrMoney = [1400, 7600, 933]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         for i in 0..<3 {
-            if let inCome = InCome(money: 20000, category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImageCategory[i])")), note: "\(arrNote[i])", image: UIImage(named: "\(arrImage[i])")) {
+            if let inCome = InCome(money: Double(arrMoney[i]), category: Category(name: "\(arrName[i])", image: UIImage(named: "\(arrImageCategory[i])")), note: "\(arrNote[i])", image: UIImage(named: "\(arrImage[i])")) {
                 inComeList += [inCome]
             }
         }
